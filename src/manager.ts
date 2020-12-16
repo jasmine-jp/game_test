@@ -10,14 +10,14 @@ export default class Manager {
   public static start(options: {
     width: number,
     height: number,
-    option: number
+    canvas: any
   }): void {
     this.game = new PIXI.Application({
       width: options.width,
       height: options.height,
-      backgroundColor: options.option
+      backgroundColor: 0x000000
     });
-    document.body.appendChild(this.game.view);
+    options.canvas.appendChild(this.game.view);
     new Scene1(this.scene);
   }
 }
