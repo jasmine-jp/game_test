@@ -17,8 +17,8 @@ export default class Result {
       ]
     );
     Scene.appendScene(scene);
-    scene.sprite[0].scale.x = Manager.game.screen.width / 1024;
-    scene.sprite[0].scale.y = Manager.game.screen.height / 719;
+    scene.sprite[0].scale.x = Manager.game.screen.width / 511;
+    scene.sprite[0].scale.y = Manager.game.screen.height / 340;
 
     Text.appendText('PERFECT', 0, 50, 350, 100, scene);
     Text.appendText('GREAT', 1, 50, 350, 200, scene);

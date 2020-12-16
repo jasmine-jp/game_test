@@ -15,8 +15,8 @@ export default class Scene2 {
       ]
     );
     Scene.appendScene(scene);
-    scene.sprite[0].scale.x = Manager.game.screen.width / 1024;
-    scene.sprite[0].scale.y = Manager.game.screen.height / 719;
+    scene.sprite[0].scale.x = Manager.game.screen.width / 511;
+    scene.sprite[0].scale.y = Manager.game.screen.height / 340;
 
     Text.appendText('---PAUSE---', 0, 50, 125, 500, scene);
     Text.appendText('---AGAIN---', 1, 50, 425, 500, scene);
