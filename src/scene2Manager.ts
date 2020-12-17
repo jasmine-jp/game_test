@@ -122,7 +122,7 @@ export default class Scene2Manager {
   }
 
   private static a() {
-    //Scene2Manager.note += `[${Math.round(Scene2Manager.count * 100) / 100}, ], `;
+    Scene2Manager.note += `[${Math.round(Scene2Manager.count * 100) / 100}, ], `;
   }
 
   private static pushNote(count: number, note: number[][]) {

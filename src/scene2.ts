@@ -25,6 +25,11 @@ export default class Scene2 {
 
     Sound.bgm.play();
 
+    window.onblur = () => {
+      Sound.bgm.pause();
+      Manager.ticker.stop();
+      this.hoge = false;
+    }
     Text.transitionText[0].on('pointerdown', () => {
       if (this.hoge) {
         Sound.bgm.pause();
