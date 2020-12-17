@@ -5,14 +5,14 @@ export default class Text {
   public static transitionText: PIXI.Text[] = [];
   public static keyboardText: PIXI.Text[] = [];
 
-  public static appendText(str: string, num: number, font: number, x: number, y: number, scene: Scene) {
+  public static appendText(str: string, num: number, font: number, x: number, y: number) {
     this.transitionText[num] = new PIXI.Text(str, {
       fontSize: font,
       fill: 0xffffff,
       stroke: 0x000000,
       strokeThickness: 3
     });
-    scene.container.addChild(this.transitionText[num]);
+    Scene.container.addChild(this.transitionText[num]);
     this.transitionText[num].x = x;
     this.transitionText[num].y = y;
     this.transitionText[num].interactive = true;

@@ -9,20 +9,19 @@ import Sound from './sound';
 export default class Scene2 {
   private hoge = true;
 
-  constructor(scene: Scene) {
-    scene = new Scene([
+  constructor() {
+    Scene.appendScene([
         PIXI.Texture.from('./assets/background1.jpg')
       ]
     );
-    Scene.appendScene(scene);
-    scene.sprite[0].scale.x = Manager.game.screen.width / 511;
-    scene.sprite[0].scale.y = Manager.game.screen.height / 340;
+    Scene.sprite[0].scale.x = Manager.game.screen.width / 511;
+    Scene.sprite[0].scale.y = Manager.game.screen.height / 340;
 
-    Text.appendText('---PAUSE---', 0, 50, 125, 500, scene);
-    Text.appendText('---AGAIN---', 1, 50, 425, 500, scene);
-    Text.appendText('---BACK---', 2, 50, 725, 500, scene);
+    Text.appendText('---PAUSE---', 0, 50, 125, 500);
+    Text.appendText('---AGAIN---', 1, 50, 425, 500);
+    Text.appendText('---BACK---', 2, 50, 725, 500);
 
-    Scene2Manager.appendBoard(scene);
+    Scene2Manager.appendBoard();
 
     Sound.bgm.play();
 
@@ -42,14 +41,14 @@ export default class Scene2 {
       Manager.ticker.stop();
       this.hoge = true;
       Scene2Manager.removeEvent();
-      if(Scene.destroyScene(scene)) { setTimeout(() => { new Scene2(Manager.scene); }, 600); }
+      if(Scene.destroyScene()) { setTimeout(() => { new Scene2(); }, 600); }
     });
     Text.transitionText[2].on('pointerdown', () => {
       Sound.bgm.stop();
       Manager.ticker.stop();
       this.hoge = true;
       Scene2Manager.removeEvent();
-      if(Scene.destroyScene(scene)) { setTimeout(() => { new Scene1(Manager.scene); }, 600); }
+      if(Scene.destroyScene()) { setTimeout(() => { new Scene1(); }, 600); }
     });
   }
 }

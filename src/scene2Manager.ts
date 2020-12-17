@@ -15,10 +15,10 @@ export default class Scene2Manager {
   private static boolNote: number[][] = [];
   private static shadow: PIXI.Sprite[] = [];
 
-  public static appendBoard(scene: Scene) {
+  public static appendBoard() {
     for (let i = 0; i < 26; i++) {
       this.container[i] = new PIXI.Container();
-      scene.container.addChild(this.container[i]);
+      Scene.container.addChild(this.container[i]);
       this.sprite[i] = PIXI.Sprite.from(PIXI.Texture.from('assets/maru.png'));
       this.container[i].addChild(this.sprite[i]);
       this.sprite[i].anchor.x = 0.5;
@@ -49,7 +49,7 @@ export default class Scene2Manager {
     }
     this.container[26] = new PIXI.Container();
     this.container[27] = new PIXI.Container();
-    scene.container.addChild(this.container[27]);
+    Scene.container.addChild(this.container[27]);
     this.text[26] = new PIXI.Text("", {
       fontSize: 75,
       fill: 0xffffff,
@@ -68,7 +68,7 @@ export default class Scene2Manager {
     Manager.game.ticker.add(() => {
       this.text[27].text = `${Result.combo} COMBO`;
     })
-    this.controlGame(scene);
+    this.controlGame();
   }
 
   private static func1 = function(e: KeyboardEvent): any {
@@ -93,7 +93,7 @@ export default class Scene2Manager {
   private static i = 0;
   private static j = 0;
   private static note = "";
-  private static controlGame(scene: Scene) {
+  private static controlGame() {
     this.boolNote = Sound.note;
     Manager.ticker = new PIXI.Ticker();
     Manager.ticker.start();
@@ -116,7 +116,7 @@ export default class Scene2Manager {
         //console.log(this.note); //get note
         Manager.ticker.stop();
         Scene2Manager.removeEvent();
-        if(Scene.destroyScene(scene)) { setTimeout(() => { new Result(Manager.scene); }, 600); }
+        if(Scene.destroyScene()) { setTimeout(() => { new Result(); }, 600); }
       }
     });
   }
