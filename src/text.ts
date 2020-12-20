@@ -3,7 +3,6 @@ import Scene from './scene';
 
 export default class Text {
   public static transitionText: PIXI.Text[] = [];
-  public static keyboardText: PIXI.Text[] = [];
 
   public static appendText(str: string, num: number, font: number, x: number, y: number) {
     this.transitionText[num] = new PIXI.Text(str, {

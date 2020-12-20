@@ -4,6 +4,7 @@ import Manager from './manager';
 import Text from './text';
 import Load from './load';
 import Sound from './sound';
+import Graphic from './graphic';
 
 export default class Scene1 {
   constructor() {
@@ -15,6 +16,7 @@ export default class Scene1 {
     Scene.sprite[0].scale.y = Manager.game.screen.height / 340;
 
     Text.appendText('---GAME PLAY---', 0, 50, 375, 300);
+    Graphic.appendGraphic(0, 100, 100, 300, 100);
 
     Text.transitionText[0].on('pointerdown', () => {
       if(Scene.destroyScene()) { setTimeout(() => { new Load(Sound.bgm); }, 600); }

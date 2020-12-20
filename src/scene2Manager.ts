@@ -71,7 +71,7 @@ export default class Scene2Manager {
     this.controlGame();
   }
 
-  private static func1 = function(e: KeyboardEvent): any {
+  private static func1 = function(e: KeyboardEvent) {
     for (let i = 0; i < 26; i++) {
       if (Scene2Manager.key[i] === e.key) {
         Scene2Manager.sprite[i].tint = 0xffff00;
@@ -80,7 +80,7 @@ export default class Scene2Manager {
       }
     }
   }
-  private static func2(e: KeyboardEvent): any {
+  private static func2(e: KeyboardEvent) {
     for (let i = 0; i < 26; i++) {
       if (Scene2Manager.key[i] === e.key) {
         Scene2Manager.sprite[i].tint = 0xffffff;
