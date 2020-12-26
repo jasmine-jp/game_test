@@ -5,6 +5,8 @@ import Scene from './scene';
 
 export default class Scene1Manager {
   public static num: number;
+  public static volume = 1;
+  public static positionX = 474;
 
   public static spriteEnableMove(num: number) {
     this.num = num;
@@ -24,6 +26,8 @@ export default class Scene1Manager {
         Scene.sprite[Scene1Manager.num].x = e.data.getLocalPosition(Manager.game.stage).x;
       }
       Graphic.cloneGraphic[0].width = Scene.sprite[Scene1Manager.num].x - Graphic.cloneGraphic[0].x;
+      Scene1Manager.positionX = Scene.sprite[Scene1Manager.num].x;
+      Scene1Manager.volume = 1 + (Scene.sprite[Scene1Manager.num].x - 474) / 100;
     });
   }
 }

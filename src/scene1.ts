@@ -18,7 +18,7 @@ export default class Scene1 {
     Scene.sprite[0].scale.y = Manager.game.screen.height / 340;
     Scene.sprite[1].scale.x = 0.2; Scene.sprite[1].scale.y = 0.2;
     Scene.sprite[1].anchor.x = 0.5; Scene.sprite[1].anchor.y = 0.5;
-    Scene.sprite[1].x = 474; Scene.sprite[1].y = 510;
+    Scene.sprite[1].x = Scene1Manager.positionX; Scene.sprite[1].y = 510;
 
     Text.appendText('---GAME PLAY---', 0, 50, 375, 400);
     Graphic.appendGraphic(0, 0xffffff, 374, 500, 400, 10);

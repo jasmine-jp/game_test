@@ -1,16 +1,26 @@
 import PIXI_SOUND from 'pixi-sound';
-
+import Scene1Manager from './scene1Manager';
 
 export default class Sound {
+  public static effectVolume = 3;
+  public static bgmVolume = [0.6];
+
   public static effect: PIXI_SOUND.Sound = PIXI_SOUND.Sound.from({
     url: 'sounds/effect.mp3',
-    volume: 1.5
+    volume: Sound.effectVolume
   });
+
   public static bgm: PIXI_SOUND.Sound = PIXI_SOUND.Sound.from({
     url: 'sounds/Knight_Of_Firmament.mp3',
-    volume: 0.3,
+    volume: Sound.bgmVolume[0],
     preload: true
   });
+
+  public static decideVolume(num: number) {
+    this.effect.volume = this.effectVolume * Scene1Manager.volume;
+    this.bgm.volume = this.bgmVolume[num] * Scene1Manager.volume;
+  }
+
   public static note: number[][]; //[time, keynumber]
 
   public static decideNote(bgm: PIXI_SOUND.Sound): void {
@@ -64,5 +74,5 @@ export default class Sound {
         [130.518, 5], [130.868, 13], [131.218, 13], [131.385, 15], [131.635, 13], [132.102, 15], [132.668, 13], [133.402, 22], [134.135, 24], [134.785, 22], [135.568, 25]
       ];
     }
-  };
+  }
 }

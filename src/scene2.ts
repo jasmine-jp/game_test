@@ -24,6 +24,7 @@ export default class Scene2 {
     Scene2Manager.appendBoard();
 
     Sound.bgm.play();
+    Sound.decideVolume(0);
 
     window.onblur = () => {
       Sound.bgm.pause();
