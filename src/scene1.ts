@@ -21,9 +21,10 @@ export default class Scene1 {
     Scene.sprite[1].x = 474; Scene.sprite[1].y = 510;
 
     Text.appendText('---GAME PLAY---', 0, 50, 375, 400);
-    Graphic.appendGraphic(0, 374, 500, 400, 10);
+    Graphic.appendGraphic(0, 0xffffff, 374, 500, 400, 10);
 
-    Scene1Manager.enableMove(1);
+    Scene1Manager.spriteEnableMove(1);
+    Graphic.appendCloneGraphic(0, 0, 374, 500);
 
     Text.transitionText[0].on('pointerdown', () => {
       if(Scene.destroyScene()) { setTimeout(() => { new Load(Sound.bgm); }, 600); }

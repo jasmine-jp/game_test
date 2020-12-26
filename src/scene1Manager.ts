@@ -1,11 +1,12 @@
 import * as PIXI from 'pixi.js';
+import Graphic from './graphic';
 import Manager from './manager';
 import Scene from './scene';
 
 export default class Scene1Manager {
-  private static num: number;
+  public static num: number;
 
-  public static enableMove(num: number) {
+  public static spriteEnableMove(num: number) {
     this.num = num;
     Scene.sprite[num].interactive = true;
     Scene.sprite[num].buttonMode = true;
@@ -22,6 +23,7 @@ export default class Scene1Manager {
       } else {
         Scene.sprite[Scene1Manager.num].x = e.data.getLocalPosition(Manager.game.stage).x;
       }
+      Graphic.cloneGraphic[0].width = Scene.sprite[Scene1Manager.num].x - Graphic.cloneGraphic[0].x;
     });
   }
 }
