@@ -55,6 +55,6 @@ export default class Graphic {
     this.cloneGraphic[num].tint = 0x0000ff;
     this.cloneGraphic[num].x = x;
     this.cloneGraphic[num].y = y;
-    this.cloneGraphic[num].width = Scene.sprite[Scene1Manager.num].x - Graphic.cloneGraphic[0].x;
+    this.cloneGraphic[num].width = Scene.sprite[Scene1Manager.spriteNum].x - Graphic.cloneGraphic[0].x;
   }
 }

@@ -1,30 +1,24 @@
 import PIXI_SOUND from 'pixi-sound';
-import Scene1Manager from './scene1Manager';
 
 export default class Sound {
   public static effectVolume = 3;
-  public static bgmVolume = [0.6];
+  public static bgmVolume = [1, 1, 1, 1, 1];
+  public static url = [
+    'sounds/Dream.mp3', 'sounds/Knight_Of_Firmament.mp3',
+    'sounds/Leviathan.mp3', 'sounds/Myosotis.mp3',
+    'sounds/RTRT.mp3'
+  ];
 
   public static effect: PIXI_SOUND.Sound = PIXI_SOUND.Sound.from({
-    url: 'sounds/effect.mp3',
-    volume: Sound.effectVolume
+    url: 'sounds/effect.mp3'
   });
 
-  public static bgm: PIXI_SOUND.Sound = PIXI_SOUND.Sound.from({
-    url: 'sounds/Knight_Of_Firmament.mp3',
-    volume: Sound.bgmVolume[0],
-    preload: true
-  });
+  public static bgm: PIXI_SOUND.Sound;
 
-  public static decideVolume(num: number) {
-    this.effect.volume = this.effectVolume * Scene1Manager.volume;
-    this.bgm.volume = this.bgmVolume[num] * Scene1Manager.volume;
-  }
-
-  public static note: number[][]; //[time, keynumber]
+  public static note: number[][] = []; //[time, keynumber]
 
   public static decideNote(bgm: PIXI_SOUND.Sound): void {
-    if(bgm.url = 'sounds/Knight_Of_Firmament.mp3') {
+    if(bgm.url === 'sounds/Knight_Of_Firmament.mp3') {
       this.note = [
         [8.45, 12], [8.766, 16], [9.15, 11], [9.533, 17], [9.916, 12], [10.3, 16], [10.75, 11], [11.333, 17], [11.533, 11], [12.016, 22],
         [12.650, 24], [13.033, 3], [13.567, 24], [14.133, 22], [14.533, 12], [14.717, 12], [15.183, 2], [15.367, 12], [15.583, 12], [15.950, 2],
@@ -73,6 +67,8 @@ export default class Sound {
         [126.418, 1], [127.168, 11], [127.5, 12], [128.218, 21], [128.518, 22], [129.2, 3], [129.535, 5], [129.868, 3], [130.018, 5], [130.335, 3],
         [130.518, 5], [130.868, 13], [131.218, 13], [131.385, 15], [131.635, 13], [132.102, 15], [132.668, 13], [133.402, 22], [134.135, 24], [134.785, 22], [135.568, 25]
       ];
+    } else {
+      this.note = [];
     }
   }
 }

@@ -19,15 +19,15 @@ export default class Result {
     Scene.sprite[0].scale.x = Manager.game.screen.width / 511;
     Scene.sprite[0].scale.y = Manager.game.screen.height / 340;
 
-    Text.appendText('PERFECT', 0, 50, 350, 100);
-    Text.appendText('GREAT', 1, 50, 350, 200);
-    Text.appendText('MISS', 2, 50, 350, 300);
-    Text.appendText('COMBO', 3, 50, 350, 400);
-    Text.appendText(`${Result.perfectNum}`, 4, 50, 700, 100);
-    Text.appendText(`${Result.greatNum}`, 5, 50, 700, 200);
-    Text.appendText(`${Result.missNum}`, 6, 50, 700, 300);
-    Text.appendText(`${Result.maxCombo}`, 7, 50, 700, 400);
-    Text.appendText('---BACK---', 8, 50, 450, 500);
+    Text.appendText('PERFECT', 0, 50, 350, 100, true);
+    Text.appendText('GREAT', 1, 50, 350, 200, true);
+    Text.appendText('MISS', 2, 50, 350, 300, true);
+    Text.appendText('COMBO', 3, 50, 350, 400, true);
+    Text.appendText(`${Result.perfectNum}`, 4, 50, 700, 100, true);
+    Text.appendText(`${Result.greatNum}`, 5, 50, 700, 200, true);
+    Text.appendText(`${Result.missNum}`, 6, 50, 700, 300, true);
+    Text.appendText(`${Result.maxCombo}`, 7, 50, 700, 400, true);
+    Text.appendText('---BACK---', 8, 50, 450, 500, true);
 
     Text.transitionText[8].on('pointerdown', () => {
       if(Scene.destroyScene()) { setTimeout(() => { new Scene1(); }, 600); }

@@ -17,14 +17,13 @@ export default class Scene2 {
     Scene.sprite[0].scale.x = Manager.game.screen.width / 511;
     Scene.sprite[0].scale.y = Manager.game.screen.height / 340;
 
-    Text.appendText('---PAUSE---', 0, 50, 125, 500);
-    Text.appendText('---AGAIN---', 1, 50, 425, 500);
-    Text.appendText('---BACK---', 2, 50, 725, 500);
+    Text.appendText('---PAUSE---', 0, 50, 125, 500, true);
+    Text.appendText('---AGAIN---', 1, 50, 425, 500, true);
+    Text.appendText('---BACK---', 2, 50, 725, 500, true);
 
     Scene2Manager.appendBoard();
 
     Sound.bgm.play();
-    Sound.decideVolume(0);
 
     window.onblur = () => {
       Sound.bgm.pause();
